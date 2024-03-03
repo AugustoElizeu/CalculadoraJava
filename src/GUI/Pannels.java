@@ -4,10 +4,11 @@ import java.awt.*;
 
 public class Pannels {
     JFrame janela = new JFrame("calculadora");
-    JPanel painel = new JPanel(new GridLayout(3, 3));
+    JPanel painel = new JPanel(new GridLayout(4, 3));
     JPanel painel2 = new JPanel(new BorderLayout());
-    JPanel painel3 = new JPanel(new BorderLayout());
+    JPanel painel3 = new JPanel(new GridLayout(6,1));
     JTextField CDT = new JTextField();
+    Simbulos sim = new Simbulos();
     NumButtons btno = new NumButtons();
     public void open(){
         //Define o Tamanho
@@ -20,19 +21,18 @@ public class Pannels {
         janela.setDefaultCloseOperation(janela.EXIT_ON_CLOSE);
         //Deixa visivel nosso programa
         janela.setVisible(true);
+        CDT.setHorizontalAlignment(JTextField.RIGHT);
+        CDT.setEditable(false);
+        CDT.setFont(new Font("Arial",Font.CENTER_BASELINE,48));
         
-        textboxd();
-           
+        
+        painel2.add(CDT);
+        sim.symbols(painel3);
         btno.buttonsd(painel);
         janela.getContentPane().setLayout(new BorderLayout());
         janela.getContentPane().add(painel2, BorderLayout.NORTH);
         janela.getContentPane().add(painel, BorderLayout.CENTER);
+        janela.getContentPane().add(painel3, BorderLayout.EAST);
     }
 
-    public void textboxd(){
-        //Define tamanho e posição da nossa caixa de texto
-        CDT.setPreferredSize(new Dimension(100,50));
-        //Adiciona ela no nosso painel
-        painel2.add(CDT, BorderLayout.CENTER);
-    }
 }
