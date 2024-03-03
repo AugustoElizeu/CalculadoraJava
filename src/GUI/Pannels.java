@@ -1,13 +1,19 @@
 package GUI;
-import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.GridLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.UIManager;
+import javax.swing.plaf.metal.MetalLookAndFeel;
 
 public class Pannels {
     JFrame janela = new JFrame("calculadora");
     JPanel painel = new JPanel(new GridLayout(4, 3));
     JPanel painel2 = new JPanel(new BorderLayout());
     JPanel painel3 = new JPanel(new GridLayout(6,1));
-    JTextField CDT = new JTextField();
+    TextFieldConfig txt = new TextFieldConfig();
     Simbulos sim = new Simbulos();
     NumButtons btno = new NumButtons();
     public void open(){
@@ -21,12 +27,11 @@ public class Pannels {
         janela.setDefaultCloseOperation(janela.EXIT_ON_CLOSE);
         //Deixa visivel nosso programa
         janela.setVisible(true);
-        CDT.setHorizontalAlignment(JTextField.RIGHT);
-        CDT.setEditable(false);
-        CDT.setFont(new Font("Arial",Font.CENTER_BASELINE,48));
+        //mudar a cor da janela
+        janela.setBackground(new Color(205,133,63));
         
         
-        painel2.add(CDT);
+        txt.textboxd(painel2);
         sim.symbols(painel3);
         btno.buttonsd(painel);
         janela.getContentPane().setLayout(new BorderLayout());
