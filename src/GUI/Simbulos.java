@@ -15,7 +15,6 @@ public class Simbulos {
 	JButton minus = new JButton("-");
 	JButton times = new JButton("X");
 	JButton divided = new JButton("/");
-	JButton equals = new JButton("=");
 	JButton cleared = new JButton("C");
 	TextFieldConfig textFusca = new TextFieldConfig();
     public void symbols(JPanel window) {
@@ -53,14 +52,6 @@ public class Simbulos {
             }
         });
     	
-    	butConf(equals);
-    	equals.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                
-                		
-            }
-        });
     	
     	butConf(cleared);
     	cleared.addActionListener(new ActionListener() {
@@ -74,7 +65,6 @@ public class Simbulos {
         window.add(minus);
         window.add(times);
         window.add(divided);
-        window.add(equals);
         window.add(cleared);
     }
     public void butConf(JButton button) {

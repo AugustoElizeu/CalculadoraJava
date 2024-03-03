@@ -12,7 +12,7 @@ public class Pannels {
     JFrame janela = new JFrame("calculadora");
     JPanel painel = new JPanel(new GridLayout(4, 3));
     JPanel painel2 = new JPanel(new BorderLayout());
-    JPanel painel3 = new JPanel(new GridLayout(6,1));
+    JPanel painel3 = new JPanel(new GridLayout(5,1));
     TextFieldConfig txt = new TextFieldConfig();
     Simbulos sim = new Simbulos();
     NumButtons btno = new NumButtons();

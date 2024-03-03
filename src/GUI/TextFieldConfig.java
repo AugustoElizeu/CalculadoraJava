@@ -12,6 +12,12 @@ import javax.swing.border.EmptyBorder;
 public class TextFieldConfig {
 	private JTextField CDT = new JTextField();
 	private Border border = BorderFactory.createLineBorder(Color.gray, 10);
+	
+	public void valueBut(String str) {
+		CDT.setText(str);
+		System.out.print(str);
+	}
+	
 	public void textboxd(JPanel window) {
 		 CDT.setHorizontalAlignment(JTextField.RIGHT);
 	     CDT.setEditable(true);
@@ -20,9 +26,5 @@ public class TextFieldConfig {
 	     CDT.setBorder(border);
 	     CDT.setSize(30,60);
 	     window.add(CDT);
-	}
-	public void valueBut(String str) {
-		CDT.setText(str);
-		System.out.print(str);
 	}
 }

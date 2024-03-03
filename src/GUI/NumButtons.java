@@ -22,20 +22,44 @@ public class NumButtons {
     			window.add(button);
     		}
     		else {
-    			window.add(new JPanel());
-    			button = new JButton("0");
-    			num = "0";
-    			butConf(button);
-    			window.add(button);
-    		}
-    		String aux = button.getText();
-    		button.addActionListener(new ActionListener() {
+    			JButton button2 = new JButton(".");
+    			button2.addActionListener(new ActionListener() {
     	            @Override
     	            public void actionPerformed(ActionEvent e) {
-    	                textFusca.valueBut(aux);
+
+    	                textFusca.valueBut(button2.getText());
     	                		
     	            }
     	        });
+    			button = new JButton("0");
+    			num = "0";
+    			JButton button3 = new JButton("=");
+    			button3.addActionListener(new ActionListener() {
+    	            @Override
+    	            public void actionPerformed(ActionEvent e) {
+
+    	                textFusca.valueBut(button3.getText());
+    	                		
+    	            }
+    	        });
+    			
+    			butConf(button);
+    			butConf(button2);
+    			butConf(button3);
+    			window.add(button2);
+    			window.add(button);
+    			window.add(button3);
+    		}
+    		String aux = button.getText();
+			button.addActionListener(new ActionListener() {
+	            @Override
+	            public void actionPerformed(ActionEvent e) {
+
+	                textFusca.valueBut(aux);
+	                		
+	            }
+	        });
+    		
     	        
     	}
     }
