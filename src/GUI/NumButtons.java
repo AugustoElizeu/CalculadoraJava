@@ -10,10 +10,14 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+
 public class NumButtons extends JPanel implements ActionListener {
 	
 	private Color cor = new Color(114, 47, 55);
 	private JTextField TFC;
+	
+	JButton button2 = new JButton(".");
+	private JButton button3 = new JButton("=");
 	
 	public NumButtons(JTextField TFC) {
 		this.TFC = TFC;
@@ -31,19 +35,19 @@ public class NumButtons extends JPanel implements ActionListener {
     		else {
     			JButton button2 = new JButton(".");
     			button = new JButton("0");
-    			num = "0";
-    			JButton button3 = new JButton("=");		
+    			num = "0";		
     			butConf(button);
-    			butConf(button2);
-    			butConf(button3);
     			button.addActionListener(this);
-    			button2.addActionListener(this);
-    			add(button2);
     			add(button);
-    			add(button3);
     		}
     		 
     	}
+    	button2.addActionListener(this);
+    	add(button2);
+    	button3.addActionListener(this);
+    	add(button3);
+    	butConf(button2);
+		butConf(button3);
     	return;
 	}
     public void butConf(JButton button) {
@@ -59,5 +63,6 @@ public class NumButtons extends JPanel implements ActionListener {
     	JButton btn = (JButton) e.getSource();
     	String number = btn.getText();
     	TFC.setText(TFC.getText() + number);
+    
     }
 }

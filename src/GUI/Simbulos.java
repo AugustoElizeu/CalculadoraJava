@@ -14,34 +14,40 @@ public class Simbulos extends JPanel implements ActionListener{
 	
 	private JTextField TFC;
 	
-	private JButton plus;
-	private JButton minus;
-	private JButton times;
-	private JButton divided;
-	private JButton cleared;
+	private char op;
+	private double n1;
+	private double n2;
 	
-	public Simbulos(JTextField CDT) {
+	private JButton plus = new JButton("+");;
+    private JButton minus = new JButton("-");
+	private JButton times = new JButton("*");
+	private JButton divided = new JButton("/");
+	private JButton cleared;
+	private JButton button3;
+	
+	public Simbulos(JTextField TFC) {
 		this.TFC = TFC;
 		
 		setLayout(new GridLayout(5,1));
 		
-		plus = new JButton("+");
 		butConf(plus);
+		plus.addActionListener(this);
         add(plus);
         
-		minus = new JButton("-");
 		butConf(minus);
+		minus.addActionListener(this);
         add(minus);
         
-		times = new JButton("*");
 		butConf(times);
+		times.addActionListener(this);
         add(times);
         
-		divided = new JButton("/");
 		butConf(divided);
+		divided.addActionListener(this);
         add(divided);
         
-		cleared = new JButton("C");
+        cleared = new JButton("C");
+        cleared.addActionListener(this);
 		butConf(cleared);
         add(cleared);
 	}
@@ -49,9 +55,45 @@ public class Simbulos extends JPanel implements ActionListener{
     	button.setBackground(new Color(70,130,180));
 		button.setFont(new Font("Arial", Font.BOLD, 32));
     }
+    
+    public void getButt(JButton button3) {
+    	this.button3 = button3;
+    	
+    }
+    
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 		
+		if(TFC.getText().isEmpty()) {
+			return;
+		}
+		JButton btn = (JButton) e.getSource();
+		if(btn == cleared) {
+			op='\u0000';
+			TFC.setText("");
+		} else if(button3 == btn) {
+			
+			n2 = Double.parseDouble(TFC.getText());
+			Double results=0.0;
+			if(btn == plus) {
+				results = n1+n2;
+			}else if(btn == minus) {
+				results = n1-n2;
+			}else if(btn == times) {
+				results = n1*n2;
+			}else if(btn == divided) {
+				results = n1/n2;
+			}
+			
+			TFC.setText(results.toString());
+			op='\u0000';
+			n1 = results;
+			n2 = 0.0;
+			
+		} else {
+			op = btn.getText().charAt(0);
+			n1 = Double.parseDouble(TFC.getText());
+			TFC.setText("");
+		}
 	}
 }
