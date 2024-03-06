@@ -15,9 +15,9 @@ public class NumButtons extends JPanel implements ActionListener {
 	
 	private Color cor = new Color(114, 47, 55);
 	private JTextField TFC;
+	private Simbulos sim = new Simbulos();
 	
-	JButton button2 = new JButton(".");
-	private JButton button3 = new JButton("=");
+	private JButton button2 = new JButton(".");
 	
 	public NumButtons(JTextField TFC) {
 		this.TFC = TFC;
@@ -33,7 +33,8 @@ public class NumButtons extends JPanel implements ActionListener {
     			add(button);
     		}
     		else {
-    			JButton button2 = new JButton(".");
+    			ImagePanel pan = new ImagePanel("sexo");
+    			add(pan);
     			button = new JButton("0");
     			num = "0";		
     			butConf(button);
@@ -44,25 +45,26 @@ public class NumButtons extends JPanel implements ActionListener {
     	}
     	button2.addActionListener(this);
     	add(button2);
-    	button3.addActionListener(this);
-    	add(button3);
     	butConf(button2);
-		butConf(button3);
     	return;
 	}
+	
     public void butConf(JButton button) {
     	button.setBackground(cor);
 		button.setFont(new Font("Arial", Font.BOLD, 32));
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-		
     	if(TFC.getText().length() == 10) {
     		return;
     	}
     	JButton btn = (JButton) e.getSource();
+    	if(TFC.getText().length() == 10) {
+    		return;
+    	}
     	String number = btn.getText();
     	TFC.setText(TFC.getText() + number);
+
     
     }
 }
